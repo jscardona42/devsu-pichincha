@@ -1,0 +1,110 @@
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  
+  .header {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 70px;
+  }
+  
+  .logo {
+    max-height: 50px;
+  }
+  
+  .search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .yellow-button {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 23px;
+    border-radius: 5px;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+  
+  .rounded-input {
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .card {
+    margin: 25px 15px 15px 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table {
+    width: calc(100% - 40px);
+    border-collapse: collapse;
+    margin: 20px;
+  }
+  
+  .table th, .table td {
+    text-align: center; /* Centrar el contenido en las celdas */
+    padding: 20px;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .table td {
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+  }
+  
+  .table-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  
+  .results-info {
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+  .pagination {
+    display: flex;
+    align-items: center;
+  }
+  
+  .page {
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .rows-dropdown {
+    border-radius: 2px;
+    padding: 6px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .button-outside-card {
+    margin-top: 15px;
+    margin-left: 15px;
+  }
+
+  .logo-column {
+    width: 50px; /* Ajusta el ancho de la columna del logo según tus necesidades */
+  }
+  
+  .logo-container {
+    overflow: hidden;
+    border-radius: 50%;
+    width: 25px; /* Ajusta el ancho y alto según tus necesidades */
+    height: 25px;
+  }
+  

@@ -1,0 +1,93 @@
+<app-header></app-header>
+<div class="container">
+    <form [formGroup]="formCreate" (ngSubmit)="submitForm()">
+        <div class="card create-product-card">
+            <div class="card-header">
+                <h1>Formulario de Registro</h1>
+            </div>
+
+            <div class="card-body">
+                <div class="form-group">
+                    <div class="field-group">
+                        <label for="id" class="bold-label">ID</label>
+                        <input type="text" id="id" formControlName="id" class="large-input"
+                            [ngClass]="{ 'is-invalid': formCreate.get('id')?.invalid && (formCreate.get('id')?.dirty || formCreate.get('id')?.touched) }">
+                        <div *ngIf="formCreate.get('id')?.invalid && (formCreate.get('id')?.dirty || formCreate.get('id')?.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="formCreate.get('id')?.errors?.['required']">Campo obligatorio</div>
+                            <div *ngIf="formCreate.get('id')?.errors?.['minlength']">La longitud mínima es de 3
+                                caracteres
+                            </div>
+                            <div *ngIf="formCreate.get('id')?.errors?.['maxlength']">La longitud máxima es de 10
+                                caracteres</div>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="name" class="bold-label">Nombre</label>
+                        <input type="text" id="name" formControlName="name" class="large-input"
+                            [ngClass]="{ 'is-invalid': formCreate.get('name')?.invalid && (formCreate.get('name')?.dirty || formCreate.get('name')?.touched) }">
+                        <div *ngIf="formCreate.get('name')?.invalid && (formCreate.get('name')?.dirty || formCreate.get('name')?.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="formCreate.get('name')?.errors?.['required']">Campo obligatorio</div>
+                            <div *ngIf="formCreate.get('name')?.errors?.['minlength']">La longitud mínima es de 5
+                                caracteres</div>
+                            <div *ngIf="formCreate.get('name')?.errors?.['maxlength']">La longitud máxima es de 100
+                                caracteres</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="field-group">
+                        <label for="description" class="bold-label">Descripción</label>
+                        <input id="description" formControlName="description" class="large-input"
+                            [ngClass]="{ 'is-invalid': formCreate.get('description')?.invalid && (formCreate.get('description')?.dirty || formCreate.get('description')?.touched) }">
+                        <div *ngIf="formCreate.get('description')?.invalid && (formCreate.get('description')?.dirty || formCreate.get('description')?.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="formCreate.get('description')?.errors?.['required']">Campo obligatorio</div>
+                            <div *ngIf="formCreate.get('description')?.errors?.['minlength']">La longitud mínima es de
+                                10 caracteres</div>
+                            <div *ngIf="formCreate.get('description')?.errors?.['maxlength']">La longitud máxima es de
+                                200 caracteres</div>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="logo" class="bold-label">Logo</label>
+                        <input type="text" id="logo" formControlName="logo" class="large-input"
+                            [ngClass]="{ 'is-invalid': formCreate.get('logo')?.invalid && (formCreate.get('logo')?.dirty || formCreate.get('logo')?.touched) }">
+                        <div *ngIf="formCreate.get('logo')?.invalid && (formCreate.get('logo')?.dirty || formCreate.get('logo')?.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="formCreate.get('logo')?.errors?.['required']">Campo obligatorio</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="field-group">
+                        <label for="date_release" class="bold-label">Fecha Liberación</label>
+                        <input type="date" id="date_release" formControlName="date_release" class="large-input"
+                            (change)="calculateRevisionDate()"
+                            [ngClass]="{ 'is-invalid': formCreate.get('date_release')?.invalid && (formCreate.get('date_release')?.dirty || formCreate.get('date_release')?.touched) }">
+                        <div *ngIf="formCreate.get('date_release')?.invalid && (formCreate.get('date_release')?.dirty || formCreate.get('date_release')?.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="formCreate.get('date_release')?.errors?.['required']">Campo obligatorio</div>
+                            <div *ngIf="formCreate.get('date_release')?.errors?.['invalidReleaseDate']">La fecha debe
+                                ser mayor o igual a la fecha actual</div>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="revisionDate" class="bold-label">Fecha Revisión</label>
+                        <input type="date" id="revisionDate" formControlName="revisionDate" class="large-input">
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="clear-button" (click)="resetForm()">Reiniciar</button>
+                <button type="submit" [disabled]="formCreate.invalid" class="send-button">Enviar</button>
+            </div>
+        </div>
+    </form>
+</div>

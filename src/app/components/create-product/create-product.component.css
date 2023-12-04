@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 60%;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.create-product-card {
+  margin: 20px;
+}
+
+.card-header {
+  text-align: center;
+  border-bottom: 1px solid;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.field-group {
+  flex: 0 0 calc(50% - 20px);
+  margin-bottom: 20px;
+}
+
+.bold-label {
+  font-weight: bold;
+}
+
+.large-input {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.bold-label {
+  font-weight: bold;
+}
+
+.large-input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.card-footer button {
+  padding: 10px 20px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 18px 25px;
+}
+
+.send-button {
+  background-color: #ffdd00;
+}
+
+.clear-button {
+  background-color: #ccc;
+}
+
+.invalid-feedback {
+  color: red;
+}
+
+.is-invalid {
+  border: 1px solid red;
+}

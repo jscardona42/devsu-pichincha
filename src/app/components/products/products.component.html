@@ -1,11 +1,9 @@
+<app-header></app-header>
 <div class="container">
-    <div class="header">
-        <img src="assets/img/logo.png" alt="Logo" class="logo">
-    </div>
-
     <div class="search-bar">
-        <input type="text" placeholder="Search" class="rounded-input" [(ngModel)]="searchKeyword" (input)="onSearchChange()">
-        <button class="yellow-button">Agregar</button>
+        <input type="text" placeholder="Search" class="rounded-input" [(ngModel)]="searchKeyword"
+            (input)="onSearchChange()">
+        <button class="add-button" routerLink="/create-product">Agregar</button>
     </div>
     <div class="card">
         <table class="table">
@@ -15,21 +13,30 @@
                     <th>Nombre de producto</th>
                     <th>Descripción</th>
                     <th>Fecha de liberación</th>
-                    <th>Fecha de restructuración</th>
+                    <th>Fecha de reestructuración</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Aquí puedes iterar sobre tus datos para llenar la tabla -->
                 <tr *ngFor="let product of filteredProducts">
                     <td class="logo-column">
                         <div class="logo-container">
-                          <img [src]="product.logo" alt="{{ product.name }} logo" class="logo" width="50">
+                            <img src="assets/img/logo.png" alt="{{ product.name }} logo" class="logo" width="50">
                         </div>
-                      </td>
+                    </td>
                     <td>{{ product.name }}</td>
                     <td>{{ product.description }}</td>
                     <td>{{ product.date_release | date:'dd/MM/yyyy':'UTC' }}</td>
                     <td>{{ product.date_revision | date:'dd/MM/yyyy':'UTC' }}</td>
+                    <td class="actions-column">
+                        <div class="dots-container" (click)="toggleMenu($event, product)">
+                            <div class="dots-menu">&#8942;</div>
+                            <div class="dropdown-content">
+                                <a (click)="editProduct()">Editar</a>
+                                <a (click)="deleteProduct()">Eliminar</a>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -37,13 +44,12 @@
         <div class="table-footer">
             <div class="results-info"> {{ records }} Resultados</div>
             <div class="pagination">
-                <!-- Aquí puedes agregar la paginación y el dropdown -->
-                <!-- Por ejemplo, usando ngFor para la paginación -->
-                <!-- <div *ngFor="let page of pages" class="page">{{ page }}</div> -->
-                <select class="rows-dropdown">
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
+                <div *ngFor="let page of totalPagesArray()" class="page" [class.active]="currentPage === page"
+                    (click)="onPageChange(page)">{{ page }}</div>
+            </div>
+            <div class="pagination-size">
+                <select class="rows-dropdown" [(ngModel)]="pageSize" (change)="onPageSizeChange()">
+                    <option *ngFor="let option of pageSizeOptions" [value]="option">{{ option }}</option>
                 </select>
             </div>
         </div>

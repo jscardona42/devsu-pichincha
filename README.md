@@ -2,7 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
 
-## Dependences install
+## Clone repository
+
+Run `git clone https://github.com/jscardona42/devsu-pichincha.git` 
+or download .zip repository.
+
+## Install dependencies
 
 Run `npm install`
 
